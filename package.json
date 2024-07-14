@@ -1,0 +1,27 @@
+{
+  "name": "global-locations",
+  "version": "1.0.4",
+  "description": "A comprehensive package providing a list of all regions, subregions, countries, states, and cities.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "geography",
+    "locations",
+    "regions",
+    "countries",
+    "states",
+    "cities",
+    "typescript",
+    "javascript"
+  ],
+  "author": "Ujjwal Bera",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3"
+  }
+}
