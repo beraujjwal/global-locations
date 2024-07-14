@@ -19,22 +19,121 @@
 - ES6 Module usage
 
   ```js
-  import gl from "global-locations";
+  import { Region, SubRegion, Country, State, City } from "global-locations";
+  import {
+    IRegion,
+    ISubRegion,
+    ICountry,
+    IState,
+    ICity,
+  } from "global-locations"; //for intervace
   ```
 
 - AMD Module usage
 
   ```js
-  let gl = require("global-locations");
+  let { Region, SubRegion, Country, State, City } = require("global-locations");
   ```
 
 # Docs
 
-## gl.getAllRegions()
+## Region Request method
 
-It returns _Regions Details_
+Here are all region related methods.
 
-type: **json | ICountry**
+#### Region.getAllRegions()
+
+#### Region.sortedRegions(field)
+
+Here field can be id or name. and sort always will be ascending
+
+#### Region.getFiltedRegions(field, value, sort)
+
+Here field can be id or name. value will be the value you are looking for. and sort always will be ascending
+
+## Sub Region Request method
+
+Here are all sub region related methods.
+
+#### SubRegion.getAllSubRegions()
+
+#### SubRegion.sortedSubRegions(field)
+
+Here field can be id or name. and sort always will be ascending
+
+#### SubRegion.getSubRegionOfRegion(field, value, sort)
+
+Here field can be region or regionId. value will be the value you are looking for by region. and sort always will be ascending
+
+#### SubRegion.getFiltedSubRegions(field, value, sort)
+
+Here field can be id or name. value will be the value you are looking for. and sort always will be ascending
+
+## Country Request method
+
+Here are all country related methods.
+
+#### Country.getAllCountries()
+
+#### Country.sortedCountries(field)
+
+Here field can be id/name/iso3/iso2/numericCode any field of country. and sort always will be ascending
+
+#### Country.getCountriesOfRegion(field, value, sort)
+
+Here field can be region or regionId. value will be the value you are looking for by region. and sort always will be ascending
+
+#### Country.getCountriesOfSubRegion(field, value, sort)
+
+Here field can be subregion or subregionId. value will be the value you are looking for by sub region. and sort always will be ascending
+
+#### Country.getFiltedCountries(field, value, sort)
+
+Here field can be id or name. value will be the value you are looking for. and sort always will be ascending
+
+## State Request method
+
+Here are all country related methods.
+
+#### State.getAllStates()
+
+#### State.sortedStates(field)
+
+Here field can be id/name/stateCode of state. and sort always will be ascending
+
+#### State.getStateOfCountry(field, value, sort)
+
+Here field can be countryId or countryCode(two-letter code) or countryName. value will be the value you are looking for by state. and sort always will be ascending
+
+#### State.getFiltedStates(field, value, sort)
+
+Here field can be id or name or stateCode. value will be the value you are looking for. and sort always will be ascending
+
+## City Request method
+
+Here are all city related methods.
+
+#### City.getAllCities()
+
+#### City.sortedCities(field)
+
+Here field can be id/name of city. and sort always will be ascending
+
+#### City.getCitiesOfCountry(field, value, sort)
+
+Here field can be countryId or countryName, countryCode(two-letter code). value will be the value you are looking for by country. and sort always will be ascending
+
+#### City.getCitiesOfState(field, value, sort)
+
+Here field can be stateId or stateName, stateCode(three-letter code). value will be the value you are looking for by state. and sort always will be ascending
+
+#### City.getFiltedCities(field, value, sort)
+
+Here field can be id or name. value will be the value you are looking for. and sort always will be ascending
+
+# Example structure data
+
+type: **json | IRegion**
 
 ```js
 [
@@ -56,6 +155,127 @@ type: **json | ICountry**
       "cn": "非洲",
       "tr": "Afrika"
     }
+  },
+  ...
+]
+```
+
+type: **json | ISubRegion**
+
+```js
+[
+  {
+    "id": 19,
+    "name": "Australia and New Zealand",
+    "region": "Oceania",
+    "regionId": 5,
+    "translations": {
+      "korean": "오스트랄라시아",
+      "portuguese": "Australásia",
+      "dutch": "Australazië",
+      "croatian": "Australazija",
+      "persian": "استرالزی",
+      "german": "Australasien",
+      "spanish": "Australasia",
+      "french": "Australasie",
+      "japanese": "オーストララシア",
+      "italian": "Australasia",
+      "chinese": "澳大拉西亞"
+    }
+  },
+  ...
+]
+```
+
+type: **json | ICountry**
+
+```js
+[
+  {
+    "id": 1,
+    "name": "Afghanistan",
+    "iso3": "AFG",
+    "iso2": "AF",
+    "numericCode": "004",
+    "phoneCode": "93",
+    "capital": "Kabul",
+    "currency": "AFN",
+    "currencyName": "Afghan afghani",
+    "currencySymbol": "؋",
+    "tld": ".af",
+    "native": "افغانستان",
+    "region": "Asia",
+    "regionId": 3,
+    "subregion": "Southern Asia",
+    "subregionId": 14,
+    "nationality": "Afghan",
+    "timezones": [
+      {
+        "zoneName": "Asia/Kabul",
+        "gmtOffset": 16200,
+        "gmtOffsetName": "UTC+04:30",
+        "abbreviation": "AFT",
+        "tzName": "Afghanistan Time"
+      }
+    ],
+    "translations": {
+      "kr": "아프가니스탄",
+      "pt-BR": "Afeganistão",
+      "pt": "Afeganistão",
+      "nl": "Afghanistan",
+      "hr": "Afganistan",
+      "fa": "افغانستان",
+      "de": "Afghanistan",
+      "es": "Afganistán",
+      "fr": "Afghanistan",
+      "ja": "アフガニスタン",
+      "it": "Afghanistan",
+      "cn": "阿富汗",
+      "tr": "Afganistan"
+    },
+    "latitude": "33.00000000",
+    "longitude": "65.00000000",
+    "emoji": "🇦🇫",
+    "emojiU": "U+1F1E6 U+1F1EB"
+  },
+  ...
+]
+```
+
+type: **json | IState**
+
+```js
+[
+  {
+    "id": 3901,
+    "name": "Badakhshan",
+    "countryId": 1,
+    "countryCode": "AF",
+    "countryName": "Afghanistan",
+    "stateCode": "BDS",
+    "type": null,
+    "latitude": "36.73477250",
+    "longitude": "70.81199530"
+  },
+  ...
+]
+```
+
+type: **json | ICity**
+
+```js
+[
+  {
+    "id": 52,
+    "name": "Ashkāsham",
+    "stateId": 3901,
+    "stateCode": "BDS",
+    "stateName": "Badakhshan",
+    "countryId": 1,
+    "countryCode": "AF",
+    "countryName": "Afghanistan",
+    "latitude": "36.68333000",
+    "longitude": "71.53333000"
   },
   ...
 ]

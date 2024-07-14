@@ -1,6 +1,6 @@
 {
   "name": "global-locations",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "description": "A comprehensive package providing a list of all regions, subregions, countries, states, and cities.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,10 +18,11 @@
     "typescript",
     "javascript"
   ],
-  "author": "Ujjwal Bera",
+  "author": "Ujjwal Bera <ujjwalbera.dev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.14.10",
     "typescript": "^5.5.3"
-  }
+  },
+  "repository": "https://github.com/beraujjwal/global-locations.git"
 }
